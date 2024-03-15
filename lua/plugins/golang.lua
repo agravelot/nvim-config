@@ -1,17 +1,11 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "actionlint",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "blade-formatter",
-        "commitlint",
         "css-lsp",
         "diagnostic-languageserver",
-        "docker-compose-language-service",
-        "dockerfile-language-server",
-        "gh",
-        "gitlint",
 
         "gofumpt",
         "delve",
@@ -28,7 +22,7 @@ return {
         "nginx-language-server",
         "sqlfluff",
         "yaml-language-server",
-      },
-    },
+      })
+    end,
   },
 }

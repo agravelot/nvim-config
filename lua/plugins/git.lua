@@ -7,4 +7,15 @@ return {
       table.insert(opts.sources, { name = "buffer" })
     end,
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "gh",
+        "actionlint",
+        "commitlint",
+        "gitlint",
+      },
+    },
+  },
 }

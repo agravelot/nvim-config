@@ -11,8 +11,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "html",
         "javascript",
         "json",
@@ -22,17 +22,19 @@ return {
         "regex",
         "tsx",
         "typescript",
-      },
-    },
+        "tsx",
+      })
+    end,
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- "eslint_lsp"
+    opts = function(_, opts)
+      -- add tsx and treesitter
+      vim.list_extend(opts.ensure_installed, {
         "eslint_d",
+        -- "eslint_lsp",
         "mdx-analyzer",
-      },
-    },
+      })
+    end,
   },
 }
